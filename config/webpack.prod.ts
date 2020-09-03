@@ -24,8 +24,16 @@ const prodConfig: Configuration = {
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
-        vendors: { test: /node_modules/, priority: -10, name: 'vendors' },
-        default: { minChunks: 2, priority: -20, reuseExistingChunk: true, minSize: 20 },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: 20,
+        },
+        default: {
+          minChunks: 2,
+          priority: 10,
+          reuseExistingChunk: true,
+          minSize: 0,
+        },
       },
     },
   },
