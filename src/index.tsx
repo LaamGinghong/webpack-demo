@@ -1,6 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { HashRouter } from 'react-router-dom'
 
-import App from './app/app'
+import Root from './root'
 
-render(<App />, document.getElementById('root'))
+render(
+  <HashRouter basename='/home'>
+    <Root />
+  </HashRouter>,
+  document.getElementById('root'),
+)

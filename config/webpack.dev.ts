@@ -14,7 +14,9 @@ const devConfig: Configuration = {
         rules: [{ test: /\.js$/, enforce: 'pre', loader: 'source-map-loader' }],
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin({ memoryLimit: 1024, tsconfig: resolve(PROJECT_ROOT, 'tsconfig.json') }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: { memoryLimit: 1024 * 2, configFile: resolve(PROJECT_ROOT, 'tsconfig.json') },
+        }),
         new ErrorOverlayWebpackPlugin(),
         new HotModuleReplacementPlugin(),
     ],
